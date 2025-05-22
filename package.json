@@ -2,11 +2,11 @@
   "name": "productapi",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.ts",
+  "main": "src/server.ts",
   "scripts": {
     "build": "tsc",
-    "start": "node index.js",
-    "dev": "ts-node src/index.ts",
+    "start": "ts-node src/server.ts",
+    "dev": "ts-node src/server.ts",
     "test": "jest"
   },
   "keywords": [],

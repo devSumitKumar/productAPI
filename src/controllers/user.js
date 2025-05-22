@@ -1,6 +1,10 @@
 const User = require("../models/User")
 const bcrypt = require('bcryptjs');
 
+/*
+Need to define types of the params
+*/
+
 const handleSaveUser = async (req, res) => {
     const {username: uname, emailid: eid, password: pswd, terms} = req.body
     let error = {}
