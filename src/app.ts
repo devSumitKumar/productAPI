@@ -1,5 +1,6 @@
 import express, { Application } from 'express';
 import cors from 'cors';
+import swaggerDocs from './swagger/swaggerDocs';
 
 const app: Application = express();
 
@@ -11,8 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 // API Routes
 
 // Swagger Documentation
-
-
+swaggerDocs(app);
 // Error Handler (Should be the last middleware)
 
 export default app;

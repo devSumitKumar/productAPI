@@ -2,12 +2,13 @@
   "name": "productapi",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.ts",
+  "main": "src/server.ts",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js",
-    "dev": "ts-node src/index.ts",
-    "test": "jest"
+    "start": "ts-node src/server.ts",
+    "dev": "ts-node src/server.ts",
+    "test": "jest",
+     "swagger-autogen": "node ./swagger/swagger.ts"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +28,7 @@
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "mongoose": "^8.15.0",
+    "swagger-autogen": "^2.5.2",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
   }
