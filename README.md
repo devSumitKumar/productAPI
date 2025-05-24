@@ -1,11 +1,11 @@
 # productAPI
 
-Just a POC project for NodeJS with typescript and Swagger documentations
+Just a POC project for NodeJS with TypeScript and Swagger documentation
 
 ## Description
 
-* swagger.ts -- FIle is used to generate the document in JSON 
-* swaggerDocs -- File is used to wrap the json doc and configure swagger UI 
+* swagger.ts -- File is used to generate the document in JSON 
+* swaggerDocs -- The File is used to wrap the JSON doc and configure Swagger UI 
 
 ## Getting Started
 
@@ -27,7 +27,8 @@ Just a POC project for NodeJS with typescript and Swagger documentations
 
 
 ## Authors
-[Sumit Kumar Khamari](https://github.com/devSumitKumar/) 
+[Sumit Kumar Khamari](https://github.com/devSumitKumar/)  
+
 [Swastik Mallik](https://github.com/SwastikMallik)
 
 ## Version History
