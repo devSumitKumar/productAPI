@@ -1,0 +1,48 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Product API",
+    "description": "Description",
+    "version": "1.0.0"
+  },
+  "host": "http://localhost:3000/",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/user/auth/registerUser": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "example": "Swasthik Behuria"
+                },
+                "emailid": {
+                  "example": "SwasthikBehuria@hmail.com"
+                },
+                "password": {
+                  "example": "Behuria143"
+                },
+                "terms": {
+                  "example": true
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    }
+  }
+}

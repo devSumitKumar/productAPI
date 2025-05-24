@@ -1,20 +1,20 @@
 export interface CustomError extends Error {
   statusCode?: number;
-  
+
 }
 
-export interface registerUserReuestType  {
+export interface registerUserReuestType {
   username: string;
-   emailid: string;
-    password: string;
-     terms : boolean;
+  emailid: string;
+  password: string;
+  terms: boolean;
 }
 
 export interface registerUserResponse extends Request {
   username: string;
-   emailid: string;
-    password: string;
-     terms : boolean;
+  emailid: string;
+  password: string;
+  terms: boolean;
 }
 
 
