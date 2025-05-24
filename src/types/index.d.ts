@@ -1,21 +1,34 @@
 export interface CustomError extends Error {
   statusCode?: number;
+  
 }
 
-export interface ErrorResponse {
-  success: boolean;
-  message: string;
-  stack?: string;
+export interface registerUserReuestType  {
+  username: string;
+   emailid: string;
+    password: string;
+     terms : boolean;
 }
 
-export interface SuccessResponse<T> {
+export interface registerUserResponse extends Request {
+  username: string;
+   emailid: string;
+    password: string;
+     terms : boolean;
+}
+
+
+/**
+ * Standard API response format
+ */
+export interface ApiResponse<T = any> {
   success: boolean;
-  data: T;
-  count?: number;
-  pagination?: {
-    page: number;
-    limit: number;
-    totalPages: number;
-    totalDocuments: number;
-  };
+  message?: string;
+  data?: T;
+  error?: string;
+}
+
+interface ValidationRule {
+  field: string;
+  validations: ((value: any) => string | null)[];
 }
