@@ -9,7 +9,7 @@
     "dev": "ts-node src/server.ts",
      "start:dev": "nodemon",
     "test": "jest",
-     "swagger-autogen": "node ./swagger/swagger.ts"
+     "swaggerautogen": "ts-node src/swagger/swagger.ts"
   },
   "keywords": [],
   "author": "",
