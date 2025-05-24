@@ -1,7 +1,7 @@
 import User from "../models/User";
 import { NextFunction, Request, Response } from "express";
 import { validationResult } from "express-validator";
-import { ErrorResponse, sendErrorResponse, sendSuccessResponse } from "../utils/helper/responseHelper";
+import { ErrorResponse, sendSuccessResponse } from "../utils/helper/responseHelper";
 import { asyncHandler } from "../middleware/asyncHandler";
 
 /*
@@ -12,7 +12,7 @@ export const registerUser = asyncHandler(async (req: Request, res: Response, nex
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
-    return next(new  ErrorResponse('Validation Error', 400, errors.array()));
+    return next(new  ErrorResponse('Validation Error', 400, undefined,  errors.array()));
   }
 
   const { username, emailid, password, terms = true } = req.body;
@@ -20,6 +20,7 @@ export const registerUser = asyncHandler(async (req: Request, res: Response, nex
   
   const userExists = await User.findOne({ emailid });
   if (userExists) {
+    //add code to send the error details in response like other errors
     return next(new  ErrorResponse('User already exists', 400));
   }
 

@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 
-import { ErrorResponse, sendErrorResponse } from '../utils/helper/responseHelper';
+import { ErrorResponse } from '../utils/helper/responseHelper';
 
 /**
  * Global error handling middleware
@@ -31,7 +31,7 @@ export const errorHandler = (
   res.status(error.statusCode).json({
     success: false,
     message: error.message,
-    error: "test",
+    errors: error.errors || error.data || error.message,
     data: error.data
   });
 };

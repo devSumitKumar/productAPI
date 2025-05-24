@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { ErrorResponse, sendErrorResponse } from '../utils/helper/responseHelper';
+import { ErrorResponse } from '../utils/helper/responseHelper';
 import { ValidationRule } from '../types';
 
 // Validation helper functions
@@ -71,7 +71,7 @@ export const validate = (rules: ValidationRule[]) => {
     if (errors.length > 0) {
       //modify belwo code 
 
-      return next(new  ErrorResponse('Validation Error', 400, errors));
+      return next(new  ErrorResponse('Validation Error', 400, undefined, errors));
     }
 
     next();
