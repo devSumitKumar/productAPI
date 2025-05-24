@@ -27,6 +27,8 @@ Just a POC project for NodeJS with typescript and Swagger documentations
 
 
 ## Authors
+[Sumit Kumar Khamari](https://github.com/devSumitKumar/) 
+[Swastik Mallik](https://github.com/SwastikMallik)
 
 ## Version History
 
