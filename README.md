@@ -14,7 +14,7 @@ Just a POC project for NodeJS with typescript and Swagger documentations
 * express
 * dotenv
 * mongoose
-* swagger-jsdoc
+* swagger-autogen
 * swagger-ui-express
 
 ### Installing
