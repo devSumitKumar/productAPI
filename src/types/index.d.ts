@@ -32,3 +32,11 @@ interface ValidationRule {
   field: string;
   validations: ((value: any) => string | null)[];
 }
+
+
+export interface IUser extends Document {
+    name: string;
+    email: string;
+    password: string;
+    terms: boolean;
+};
