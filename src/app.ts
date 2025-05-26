@@ -7,11 +7,10 @@ import authRouter from './route/authRoutes';
 import { errorHandler } from './middleware/errorMiddleware';
 import path from 'path';
 // Middleware
+
 app.use(cors({
   origin: 'http://localhost:3000',
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  credentials: true
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
