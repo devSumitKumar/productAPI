@@ -3,7 +3,7 @@ import { ErrorResponse } from '../utils/helper/responseHelper';
 import { ValidationRule } from '../types';
 
 // Validation helper functions
-const isRequired = (value: any): string | null => 
+const isRequired = (value: any): string | null =>
   !value ? 'This field is required' : null;
 
 const isEmail = (value: string): string | null => {
@@ -20,34 +20,59 @@ const maxLength = (length: number) => (value: string): string | null =>
 /**
  * Create validation rules for registration
  */
-export const createRegisterValidation = ()  =>{
-  return  [
-  {
-    field: 'username',
-    validations: [
-      isRequired,
-      minLength(2),
-      maxLength(50)
-    ]
-  },
-  {
-    field: 'emailid',
-    validations: [
-      isRequired,
-      isEmail
-    ]
-  },
-  {
-    field: 'password',
-    validations: [
-      isRequired,
-      minLength(6)
-    ]
-  }
-] as ValidationRule[]
+export const createRegisterValidation = () => {
+  return [
+    {
+      field: 'username',
+      validations: [
+        isRequired,
+        minLength(2),
+        maxLength(50)
+      ]
+    },
+    {
+      field: 'emailid',
+      validations: [
+        isRequired,
+        isEmail
+      ]
+    },
+    {
+      field: 'password',
+      validations: [
+        isRequired,
+        minLength(6)
+      ]
+    }
+  ] as ValidationRule[]
 };
-  
-  
+
+
+
+
+/**
+ * Create validation rules for registration
+ */
+export const createLoginValidation = () => {
+  return [
+    {
+      field: 'username',
+      validations: [
+        isRequired,
+        minLength(2),
+        maxLength(50)
+      ]
+    },
+    {
+      field: 'password',
+      validations: [
+        isRequired,
+        minLength(6)
+      ]
+    }
+  ] as ValidationRule[]
+};
+
 
 /**
  * Middleware to validate request
@@ -58,7 +83,7 @@ export const validate = (rules: ValidationRule[]) => {
 
     rules.forEach(rule => {
       const value = req.body[rule.field];
-      
+
       for (const validation of rule.validations) {
         const error = validation(value);
         if (error) {
@@ -71,7 +96,7 @@ export const validate = (rules: ValidationRule[]) => {
     if (errors.length > 0) {
       //modify belwo code 
 
-      return next(new  ErrorResponse('Validation Error', 400, undefined, errors));
+      return next(new ErrorResponse('Validation Error', 400, undefined, errors));
     }
 
     next();
