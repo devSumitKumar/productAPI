@@ -5,10 +5,10 @@ import { ErrorResponse, sendSuccessResponse } from "../utils/helper/responseHelp
 import { asyncHandler } from "../middleware/asyncHandler";
 import { loginUserReuestType, registerUserReuestType } from "../types";
 import 'dotenv/config';
+
 /*
 Need to define types of the params
 */
-
 export const registerUser = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
   const errors = validationResult(req);
 

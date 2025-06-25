@@ -1,3 +1,5 @@
+import { Document }from 'mongoose';
+
 export interface CustomError extends Error {
   statusCode?: number;
 
