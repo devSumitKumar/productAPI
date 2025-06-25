@@ -1,5 +1,6 @@
-import mongoose, { Document, Schema } from 'mongoose';
+import mongoose from 'mongoose';
 import { IUser } from '../types';
+import bcrypt from 'bcryptjs';
 
 
 const userSchema = new mongoose.Schema({
@@ -20,8 +21,15 @@ const userSchema = new mongoose.Schema({
     terms: {
         type: Boolean,
     },
+    isAdmin: {
+        type: Boolean,
+    },
+}, { timestamps: true });
 
-}, { timestamps: true })
+// Match user entered password to hashed password in database
+userSchema.methods.matchPassword = async function (enteredPassword: string): Promise<boolean> {
+    return await bcrypt.compare(enteredPassword, this.password);
+};
 
 
 export default mongoose.model<IUser>('User', userSchema);

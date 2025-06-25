@@ -8,6 +8,12 @@ export interface registerUserReuestType {
   emailid: string;
   password: string;
   terms: boolean;
+  specialCode: string;
+}
+
+export interface loginUserReuestType {
+  username: string;
+  password: string;
 }
 
 export interface registerUserResponse extends Request {
@@ -39,4 +45,6 @@ export interface IUser extends Document {
     email: string;
     password: string;
     terms: boolean;
+    isAdmin: boolean;
+     matchPassword: (enteredPassword: string) => Promise<boolean>;
 };
