@@ -1,9 +1,9 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema }from 'mongoose';
 import { IUser } from '../types';
 import bcrypt from 'bcryptjs';
 
 
-const userSchema = new mongoose.Schema({
+const userSchema : Schema = new mongoose.Schema({
     username: {
         type: String,
         required: true
@@ -25,6 +25,13 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
     },
 }, { timestamps: true });
+
+//encrypt password before saving to database using bcrypt
+  userSchema.pre<IUser>('save', async function (next) {
+  if (!this.isModified('password')) return next();
+  this.password = await bcrypt.hash(this.password, 10);
+  next();
+});
 
 // Match user entered password to hashed password in database
 userSchema.methods.matchPassword = async function (enteredPassword: string): Promise<boolean> {
