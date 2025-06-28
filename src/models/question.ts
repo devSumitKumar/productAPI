@@ -13,24 +13,16 @@ const questionSchema = new Schema(
       required: true,
       trim: true,
     },
-    categoryType: {
-      type: String,
-      required: true,
-    },
     categoryId: {
       type: Number,
       required: true,
     },
+
     questionId: {
       type: Number,
       required: true,
       unique: true, // Ensure each question has a unique ID
-    },
-    createdBy: {
-      type: String,
-      ref: 'User', // assuming you have a User model
-      required: true,
-    },
+    }
   },
   {
     timestamps: true, // Automatically adds createdAt and updatedAt

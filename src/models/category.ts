@@ -18,12 +18,7 @@ const categorySchema = new Schema(
       type: Number,
       required: true,
       unique: true, // Ensure each category has a unique ID
-    },
-    createdBy: {
-      type: String,
-      ref: 'User', // assuming you have a User model
-      required: true,
-    },
+    }
   },
   {
     timestamps: true, // Automatically adds createdAt and updatedAt

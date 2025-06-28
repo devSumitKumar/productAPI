@@ -21,7 +21,6 @@ export interface loginUserReuestType {
 export interface CategoryRequestType {
   categoryType: string; 
   description?: string;
-  createdBy: string; // Assuming createdBy is a user ID
   }
 /**
  * Standard API response format
@@ -51,15 +50,19 @@ export interface IUser extends Document {
 export interface IQuestion extends Document {
     question: string;
     answer: string;
-    categoryType: string;
     categoryId: number;  
     questionId: number;
-    createdBy: string; // Assuming createdBy is a user ID
 };
 
 export interface ICategory extends Document {
     categoryType: string;
     description: string;
     categoryId: number;
-    createdBy: string; // Assuming createdBy is a user ID
 };
+
+export interface saveQuestionReuestType {
+  categoryId: number;
+  question: string;
+  answer: string;
+};
+

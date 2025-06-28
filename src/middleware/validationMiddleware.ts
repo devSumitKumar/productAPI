@@ -47,8 +47,49 @@ export const createRegisterValidation = () => {
   ] as ValidationRule[]
 };
 
+export const creatQeuestionSaveValidation = () => {
+  return [
+    {
+      field: 'question',
+      validations: [
+        isRequired,
+        minLength(2),
+        maxLength(500)
+      ]
+    },
+    {
+      field: 'answer',
+      validations: [
+        isRequired,
+        minLength(20),
+        maxLength(500)
+      ]
+    },
+    {
+      field: 'categoryId',
+      validations: [
+        isRequired
+      ]
+    }
+  ] as ValidationRule[];
+};
 
-
+export const createUpdateQuestionValidation = () => {
+  return [
+    
+    {
+      field: 'answer',
+      validations: [
+        minLength(20),
+        maxLength(500)
+      ]
+    },
+    {
+      field: 'categoryId',
+      validations: []
+    }
+  ] as ValidationRule[];      
+};
 
 /**
  * Create validation rules for registration
