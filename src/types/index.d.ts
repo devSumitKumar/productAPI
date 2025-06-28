@@ -18,20 +18,16 @@ export interface loginUserReuestType {
   password: string;
 }
 
-export interface registerUserResponse extends Request {
-  username: string;
-  emailid: string;
-  password: string;
-  terms: boolean;
-}
-
-
+export interface CategoryRequestType {
+  categoryType: string; 
+  description?: string;
+  }
 /**
  * Standard API response format
  */
 export interface ApiResponse<T = any> {
   success: boolean;
-  message?: string;
+  message?: string | null | undefined;
   data?: T;
   error?: string;
 }
@@ -50,3 +46,23 @@ export interface IUser extends Document {
     isAdmin: boolean;
      matchPassword: (enteredPassword: string) => Promise<boolean>;
 };
+
+export interface IQuestion extends Document {
+    question: string;
+    answer: string;
+    categoryId: number;  
+    questionId: number;
+};
+
+export interface ICategory extends Document {
+    categoryType: string;
+    description: string;
+    categoryId: number;
+};
+
+export interface saveQuestionReuestType {
+  categoryId: number;
+  question: string;
+  answer: string;
+};
+

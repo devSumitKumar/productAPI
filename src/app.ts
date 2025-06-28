@@ -4,8 +4,12 @@ import swaggerDocs from './swagger/swaggerDocs';
 
 const app: Application = express();
 import authRouter from './route/authRoutes';
+import categoryRoutes from './route/categoryRoutes';
+import  questionRoutes from './route/questionRoutes';
+
 import { errorHandler } from './middleware/errorMiddleware';
 import path from 'path';
+
 // Middleware
 
 app.use(cors({
@@ -17,6 +21,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // API Routes
 app.use('/user/auth', authRouter);
+app.use('/category', categoryRoutes);
+app.use('/question', questionRoutes);
+
 app.use('/swagger-output.json', cors(), express.static(path.join(__dirname, './swagger/swagger-output.json')));
 
 // Swagger Documentation
