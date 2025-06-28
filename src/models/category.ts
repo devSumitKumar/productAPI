@@ -1,30 +1,23 @@
 import mongoose, { Schema }from 'mongoose';
-import { IQuestion } from '../types';
 
-const questionSchema = new Schema(
+import { ICategory } from '../types';
+
+const categorySchema = new Schema(
   {
-    question: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    answer: {
-      type: String,
-      required: true,
-      trim: true,
-    },
     categoryType: {
       type: String,
       required: true,
+      trim: true,
+    },
+    description: {
+      type: String,
+      required: false,
+      trim: true,
     },
     categoryId: {
       type: Number,
       required: true,
-    },
-    questionId: {
-      type: Number,
-      required: true,
-      unique: true, // Ensure each question has a unique ID
+      unique: true, // Ensure each category has a unique ID
     },
     createdBy: {
       type: String,
@@ -36,6 +29,4 @@ const questionSchema = new Schema(
     timestamps: true, // Automatically adds createdAt and updatedAt
   }
 );
-
-export default mongoose.model<IQuestion>('Question', questionSchema);
-
+export default mongoose.model<ICategory>('Category', categorySchema);

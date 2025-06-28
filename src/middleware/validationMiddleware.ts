@@ -74,6 +74,23 @@ export const createLoginValidation = () => {
 };
 
 
+
+/**
+ * Create validation rules for registration
+ */
+export const createSaveCategoryValidation = () => {
+  return [
+    {
+      field: 'categoryType',
+      validations: [
+        isRequired,
+        minLength(2),
+        maxLength(50)
+      ]
+    }
+  ] as ValidationRule[]
+};
+
 /**
  * Middleware to validate request
  */
