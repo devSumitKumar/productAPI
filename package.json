@@ -7,7 +7,7 @@
     "build": "tsc",
     "start": "ts-node src/server.ts",
     "dev": "ts-node src/server.ts",
-     "start:dev": "nodemon",
+     "start nodemon": "nodemon",
     "test": "jest",
      "swaggerautogen": "ts-node src/swagger/swagger.ts"
   },
