@@ -27,7 +27,7 @@ export const saveCategory = asyncHandler(
             return next(new ErrorResponse('Invalid category type', 400, undefined, [{ field: 'categoryType', message: 'Category type is required and must be a string' }]));
         }
 
-        const largestCategoryId = await getLargestCategoryId();
+        const largestCategoryId = Math.random();; //await getLargestCategoryId();
 
 
         const existingCategory = await Category.findOne({ categoryType });
@@ -40,11 +40,11 @@ export const saveCategory = asyncHandler(
 
 export const getCategoryList = asyncHandler(
     async (req: Request, res: Response, next: NextFunction) => {
-        const categories = await Category.find().select('categoryType categoryId');
+        const categories = await Category.find().select('categoryType categoryId description');
         if (!categories || categories.length === 0) {
             return next(new ErrorResponse("No categories found", 404));
         }
-        return sendSuccessResponse(res, 201, 'Category Fetched successfully', categories);
+        return sendSuccessResponse(res, 200, 'Category Fetched successfully', categories);
 
     });
 

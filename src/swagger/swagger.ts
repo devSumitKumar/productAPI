@@ -7,8 +7,9 @@ const doc = {
         title: "Product API",
         description: "Description"
     },
-    host: "http://localhost:3000/",
-    schemes: ['http']
+    host: "localhost:3000",
+    schemes: ['http'],
+    basePath: "/",
 }
 
 const outputFile = 'src/swagger/swagger-output.json'; // output file path

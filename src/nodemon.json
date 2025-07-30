@@ -1,5 +1,7 @@
 {
   "watch": ["src"],
   "ext": "ts",
-  "exec": "ts-node src/server.ts"
+  "exec": "ts-node src/server.ts",
+   "ignore": ["logs", "public","dist", "node_modules"],
+   "delay": 1000
 }
